@@ -2,7 +2,7 @@ package main;
 
 public class SingletonWithThreadSafe {
     public static String input;
-    static SingletonWithThreadSafe instance;
+    private static volatile SingletonWithThreadSafe instance;
     private SingletonWithThreadSafe(String in){
         this.input = in;
     };
