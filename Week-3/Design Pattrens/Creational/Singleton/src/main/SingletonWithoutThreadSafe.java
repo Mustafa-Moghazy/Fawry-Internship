@@ -9,6 +9,7 @@ public class SingletonWithoutThreadSafe {
     public static SingletonWithoutThreadSafe getInstance(String input){
         if(instance == null){
             instance = new SingletonWithoutThreadSafe(input);
+            System.out.println("New Instance Created Without Thread Safe");
         }
         return instance;
     };
