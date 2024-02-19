@@ -18,4 +18,7 @@ public class EmployeeService {
     public Employee getEmployeeById(int id){
         return employeeRepository.findById(id);
     }
+    public List<Employee> getByDepartmentId(int departmentId) {
+        return employeeRepository.findByDepartmentId(departmentId);
+    }
 }

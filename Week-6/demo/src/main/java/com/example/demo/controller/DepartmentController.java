@@ -16,13 +16,8 @@ import java.util.List;
 public class DepartmentController {
     @Autowired
     private DepartmentService departmentService;
-
     @GetMapping("")
     public List<Department> getAllDepartments(){
         return departmentService.getAllDepartment();
-    }
-    @GetMapping("/{id}/employees")
-    public List<Employee> getAllEmployeesByDepartmentId(@PathVariable int id){
-        return departmentService.getEmployeesByDepartmentId(id);
     }
 }

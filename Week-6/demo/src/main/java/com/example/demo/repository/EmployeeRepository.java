@@ -8,6 +8,6 @@ import java.util.List;
 
 public interface EmployeeRepository extends JpaRepository<Employee, Integer> {
     Employee findById(int id);
-
     List<Employee> findAll();
+    List<Employee> findByDepartmentId(int departmentId);
 }

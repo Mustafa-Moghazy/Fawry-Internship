@@ -10,6 +10,4 @@ import java.util.List;
 public interface DepartmentRepository extends JpaRepository<Department, Integer> {
 
     List<Department> findAll();
-    @Query("SELECT e FROM Employee e WHERE e.department.id = :departmentId")
-    List<Employee> findEmployeesByDepartmentId(int departmentId);
 }
