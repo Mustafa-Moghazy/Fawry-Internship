@@ -1,12 +1,12 @@
 package com.example.demo.controller;
 
+import com.example.demo.common.EmployeeD;
 import com.example.demo.entities.Employee;
 import com.example.demo.service.EmployeeService;
+import org.springframework.data.domain.Page;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.data.domain.Pageable;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -30,5 +30,19 @@ public class EmployeeController {
     @GetMapping("/{id}/employees")
     public List<Employee> getAllEmployeesByDepartmentId(@PathVariable int id){
         return employeeService.getByDepartmentId(id);
+    }
+    @GetMapping("/pemployees")
+    public Page<Employee> getAllEmployeesPageable(Pageable pageable){
+        return employeeService.getAllEmployeesPageable(pageable);
+    }
+
+    @PostMapping("/")
+    public void createEmployee(@RequestBody EmployeeD employee){
+        employeeService.createEmployee(employee);
+    }
+
+    @GetMapping("employee/search")
+    public List<Employee> findByNameIsContainingIgnoreCase(String query){
+        return employeeService.findByNameIsContainingIgnoreCase(query);
     }
 }
